@@ -2,19 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuBtn = document.getElementById("menuBtn");
   const navLinks = document.getElementById("navLinks");
 
-  if (!menuBtn || !navLinks) {
-    console.log("Menu button or nav links not found!");
-    return;
-  }
+  if (!menuBtn || !navLinks) return;
 
   menuBtn.addEventListener("click", () => {
     navLinks.classList.toggle("hidden");
 
-    // Icon Toggle
+    // Icon Change
     menuBtn.textContent = menuBtn.textContent === "☰" ? "✖" : "☰";
   });
 
-  // Auto close on mobile click
+  // Auto close on mobile link click
   document.querySelectorAll("#navLinks a").forEach((link) => {
     link.addEventListener("click", () => {
       if (window.innerWidth < 768) {
