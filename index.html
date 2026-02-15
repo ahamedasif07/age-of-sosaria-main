@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sosaria</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/images/UOIcon (1).png" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              medieval: ["MedievalSharp", "cursive"],
+              cinzel: ["Cinzel", "serif"],
+            },
+            colors: {
+              sosaria: "#B48446",
+              gold: "#FFD700",
+              darkBg: "#0A0A0A",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/css">
+      .glowing-text {
+        color: #b48446;
+        text-shadow:
+          0 0 5px rgba(0, 0, 0, 1),
+          0 0 15px rgba(180, 132, 70, 0.6),
+          0 0 30px rgba(0, 0, 0, 0.9);
+        letter-spacing: 0.1em;
+        animation: glow 3s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow:
+            0 0 5px rgba(0, 0, 0, 1),
+            0 0 15px rgba(180, 132, 70, 0.6),
+            0 0 30px rgba(0, 0, 0, 0.9);
+        }
+        50% {
+          text-shadow:
+            0 0 10px rgba(0, 0, 0, 1),
+            0 0 25px rgba(180, 132, 70, 0.8),
+            0 0 40px rgba(180, 132, 70, 0.6);
+        }
+      }
+
+      /* Fade in animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .animate-fadeInDown {
+        animation: fadeInDown 0.8s ease-out forwards;
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      .animate-scaleIn {
+        animation: scaleIn 0.8s ease-out forwards;
+      }
+
+      .animate-slideInLeft {
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
+
+      .animate-slideInRight {
+        animation: slideInRight 0.8s ease-out forwards;
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Delay classes */
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+      .delay-700 {
+        animation-delay: 0.7s;
+      }
+      .delay-800 {
+        animation-delay: 0.8s;
+      }
+
+      /* Initially hidden for animation */
+      .animate-on-scroll {
+        opacity: 0;
+      }
+
+      /* Active Link Style - IMPROVED */
+      .nav-link-active {
+        color: #c6935c !important;
+        border: 1px solid rgba(255, 215, 0, 0.5) !important;
+        background: rgba(255, 215, 0, 0.1) !important;
+
+        border-radius: 4px;
+        transform: scale(1.05);
+      }
+
+      /* Nav item base style */
+      .nav-item {
+        position: relative;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+
+      /* Mobile Menu Animation */
+      #navLinks.mobile-menu-open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(12px);
+        padding: 2rem 1.5rem;
+        border-bottom: 2px solid #b48446;
+        z-index: 100;
+        animation: slideDown 0.3s ease-out forwards;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mobile menu items spacing */
+      #navLinks.mobile-menu-open li {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      #navLinks.mobile-menu-open .nav-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+      }
+    </style>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Tagesschrift&display=swap" rel="stylesheet">
+
+
+
+  </head>
+  <body
+    class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat"
+   
+  >
+    <header class="w-full max-w flex flex-col relative z-50 bg-[url('./images/header-bg.png')] ">
+      <!-- ===header wrapper start=== -->
+      <div
+        class="flex justify-center items-center py-0 pt-6 pb-3 px-6 md:px-12"
+      >
+      <!-- ==headerlogo== -->
+        <div class="hidden md:flex w-fit h-auto justify-start">
+          <img
+            src="/images/headerLogo.png"
+            alt="Logo"
+            class="w-24 aspect-1/1 border border-amber-600/50 rounded-full"
+          />
+        </div>
+        <!-- ==heading=== -->
+        <div class="text-center">
+          <h1
+            class="headerHeading"
+          >
+            Age of Sosaria
+          </h1>
+        </div>
+      </div>
+      <!-- ===header wrapper end=== -->
+
+    </header>
+    <!-- ===navigation bar start==== -->
+    <nav
+      class="w-full h-auto pt-8 pb-6 flex justify-center items-center shadow-2xl relative"
+    >
+      <ul id="navLinks" class="hidden md:flex flex-row gap-8 items-center">
+        <li class="animate-fadeInUp delay-100">
+          <a
+            href="#"
+            class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
+            >Home</a
+          >
+        </li>
+        <li class="animate-fadeInUp delay-200">
+          <a
+            href="#"
+            class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
+            >Getting Started</a
+          >
+        </li>
+        <li class="animate-fadeInUp delay-300">
+          <a
+            href="#"
+            class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
+            >Rules</a
+          >
+        </li>
+        <li class="animate-fadeInUp delay-400">
+          <a
+            href="#"
+            class="nav-item text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
+            >Contact Us</a
+          >
+        </li>
+
+        <li class="md:hidden w-full pt-4">
+          <a
+            href="#"
+            class="text-gold uppercase text-sm font-bold py-3 px-5 border border-gold/50 block text-center bg-gold/5"
+          >
+            Donate Now
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- ===navigation bar start==== -->
+
+    <section id="loader"
+        class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] fixed top-0 left-0 z-50  ">
+        <!-- ====animateContainer==== -->
+        <div class="flip-card w-[500px] aspect-square [perspective:1000px] opacity-10">
+            <div class="flip-card-inner relative w-full max-w-[500px] h-full max-h-[500px] text-center [transform-style:preserve-3d]  ">
+                <div class="flip-card-front absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center ">
+                    <img src="./images/logo.png" alt="coin" class="w-full h-full obj-cover">
+                </div>
+                <div class="flip-card-back absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center [transform:rotateY(180deg)]">
+                    <img src="./images/logo.png" alt="coin" class="w-full h-full obj-cover">
+                </div>
+            </div>
+        </div>
+        <!-- ====animateContainer==== -->
+    </section>
+
+    <!-- home page content here  -->
+    <main
+      class="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
+      style="
+        background-image: url('/images/BGDark.png');
+        background-attachment: fixed;
+      "
+    >
+      <div>
+        <!-- ====section1==== -->
+        <section class="w-full h-auto relative py-5">
+          <div
+            class=" w-full max-w-[1100px] flex items-center justify-center p-6 md:p-12 bg-no-repeat relative z-53 "
+            style="
+              background-image:url('/images/large-bg.png');
+              background-size: 100% 100%;
+            "
+          >
+            <div class="relative w-full text-center">
+              <h2 class="sectionHeading"
+              >
+                W<span>elcome to</span>  A<span>ge of</span>  S<span>osaria</span>
+              </h2>
+
+              <div
+                class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
+              >
+                <p class="paragraph" >
+                  A custom Ultima Online shard focused on classic roots,
+                  meaningful progression, and long-term play.
+                </p>
+
+                <p class="paragraph">
+                  The lands of Sosaria are alive once more—a world shaped by
+                  danger, discovery, and the choices of its players.
+                </p>
+
+                <p class="paragraph">
+                  Whether you seek glory in battles, fortune in trade, or a
+                  quiet life in the wilds; Your story begins here.
+                </p>
+              </div>
+
+              <button
+                class="mt-10 md:mt-14 animate-on-scroll delay-500"
+                data-animate="scaleIn"
+              >
+                <a
+                  href="#"
+                  class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
+                >
+                  <div
+                    class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
+                    style="
+                      background-image: url(&quot;/images/button-bg.png&quot;);
+                      filter: sepia(0.2) brightness(1.2);
+                    "
+                  ></div>
+                  <span class="relative z-10"> Download & Play Now </span>
+                </a>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- section two -->
+        <section id="sectionTwo" class="w-full py-10 px-4 flex justify-center items-center">
+          <div
+            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
+            style="
+              background-image: url('/images/large-bg.png');
+              background-size: 100% 100%;
+            "
+            data-animate="scaleIn"
+          >
+            <div class="relative z-10 w-full text-center">
+              <h2
+                class="gold-chisel-text text-3xl md:text-5xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
+                Why Play Age of Sosaria?
+              </h2>
+
+              <ul
+                class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8"
+              >
+                <li
+                  class="flex items-center gap-2 animate-on-scroll delay-100"
+                  data-animate="slideInLeft"
+                >
+                  <span class="mt-1">•</span>
+                  <span class="text-white">
+                    Classic inspired gameplay with custom systems
+                  </span>
+                </li>
+
+                <li
+                  class="flex items-start gap-3 animate-on-scroll delay-200"
+                  data-animate="slideInLeft"
+                >
+                  <span class="mt-1">•</span>
+                  <span class=" text-white">
+                    Meaningful progression and long term characters
+                  </span>
+                </li>
+
+                <li
+                  class="flex items-start gap-3 animate-on-scroll delay-300"
+                  data-animate="slideInLeft"
+                >
+                  <span class="mt-1">•</span>
+                  <span class="text-white">
+                    Player driven economy
+                  </span>
+                </li>
+
+                <li
+                  class="flex items-start gap-3 animate-on-scroll delay-400"
+                  data-animate="slideInLeft"
+                >
+                  <span class="mt-1">•</span>
+                  <span class="text-white">
+                    Balanced carefully designed mechanics
+                  </span>
+                </li>
+
+                <li
+                  class="flex items-start gap-3 animate-on-scroll delay-500"
+                  data-animate="slideInLeft"
+                >
+                  <span class="mt-1">•</span>
+                  <span class="text-white">
+                    Active development and ongoing improvements
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- section Three -->
+        <section id="sectionTwo" class="w-full py-10 px-4 flex justify-center items-center">
+          <div
+            class="relative w-full max-w-[1100px] flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
+            style="
+              background-image: url('/images/large-bg.png');
+              background-size: 100% 100%;
+            "
+            data-animate="scaleIn"
+          >
+            <div class="relative z-10 w-full text-center">
+              <h2
+                class="gold-chisel-text text-3xl md:text-5xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
+                World at a Glance
+              </h2>
+              <!-- ===list wrapper=== -->
+
+              <div class="w-full h-auto flex items-start justify-between gap-8">
+                <ul
+                  class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8"
+                >
+                  <li
+                    class="flex items-center gap-2 animate-on-scroll delay-100"
+                    data-animate="slideInLeft"
+                  >
+                    <span class="mt-1">•</span>
+                    <span class="text-white">
+                      Server Type: Custom Classic
+                    </span>
+                  </li>
+  
+                  <li
+                    class="flex items-start gap-3 animate-on-scroll delay-200"
+                    data-animate="slideInLeft"
+                  >
+                    <span class="mt-1">•</span>
+                    <span class=" text-white">
+                      Skill Cap: 700
+                    </span>
+                  </li>
+                  <li
+                    class="flex items-start gap-3 animate-on-scroll delay-300"
+                    data-animate="slideInLeft"
+                  >
+                    <span class="mt-1">•</span>
+                    <span class="text-white">
+                      Stat Cap: 250
+                    </span>
+                  </li>
+                </ul>
+                <ul
+                  class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8"
+                >
+  
+                  <li
+                    class="flex items-start gap-3 animate-on-scroll delay-400"
+                    data-animate="slideInLeft"
+                  >
+                    <span class="mt-1">•</span>
+                    <span class="text-white">
+                      Housing: 1 house per account.
+                    </span>
+                  </li>
+  
+                  <li
+                    class="flex items-start gap-3 animate-on-scroll delay-500"
+                    data-animate="slideInLeft"
+                  >
+                    <span class="mt-1">•</span>
+                    <span class="text-white">
+                      Accounts: 3 accounts per player.
+                    </span>
+                  </li>
+                </ul>
+
+              </div>
+
+              ===
+
+            </div>
+          </div>
+        </section>
+        <!-- ========================= -->
+         <section class="w-full h-auto relative py-5">
+          <div
+            class=" w-full max-w-[1100px] flex items-center justify-center p-6 md:p-12 bg-no-repeat relative z-53 "
+            style="
+              background-image:url('/images/large-bg.png');
+              background-size: 100% 100%;
+            "
+          >
+            <div class="relative w-full text-center flex flex-col gap-5">
+              <h2 class="sectionHeading m-0 mx-auto"
+              >
+                Join the Community
+              </h2>
+
+              <div
+                class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
+              >
+                <p class="paragraph" >
+                 Meet other adventurers, get help, and stay updated on the latest changes.
+                </p>
+              </div>
+
+              <button
+                class="animate-on-scroll delay-500"
+                data-animate="scaleIn"
+              >
+                <a
+                  href="#"
+                  class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
+                >
+                  <div
+                    class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
+                    style="
+                      background-image: url(&quot;/images/button-bg.png&quot;);
+                      filter: sepia(0.2) brightness(1.2);
+                    "
+                  ></div>
+                  <span class="relative z-10"> Join Our discord </span>
+                </a>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+
+      </div>
+
+    </main>
+    <footer
+      class="w-full py-10 px-4 border-t border-white/5 bg-[#2c1500] animate-on-scroll"
+      data-animate="fadeInUp"
+    >
+      <div
+        class="max-w-[1100px] mx-auto flex flex-col items-center justify-center space-y-6"
+      >
+        <div
+          class="flex flex-wrap justify-center items-center gap-6 md:gap-10"
+        >
+          <a
+            href="#"
+            class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+          >
+            Downloads
+          </a>
+          <span class="text-amber-600/80 hidden md:inline">|</span>
+          <a
+            href="#"
+            class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+          >
+            Privacy
+          </a>
+          <span class="text-amber-600/80 hidden md:inline">|</span>
+          <a
+            href="#"
+            class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+          >
+            Rules
+          </a>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-4 text-center">
+          <div class="flex items-center gap-2">
+            <img
+              src="/images/UOIcon (1).png"
+              alt=""
+              class="w-10 h-10 border-2 border-yellow-800 opacity-40 transition-all duration-300 hover:opacity-70 hover:scale-110"
+            />
+            <span
+              class="font-cinzel font-semibold text-amber-600/80 [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
+            >
+              © Age of Sosaria
+            </span>
+          </div>
+          <span class="text-[rgb(211 137 81)]/50 hidden md:inline">•</span>
+          <span
+            class="font-cinzel italic text-amber-600/80 [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
+          >
+            Custom Ultima Online Shard
+          </span>
+        </div>
+
+        <div
+          class="flex gap-6 uppercase text-[10px] tracking-[0.2em] font-bold"
+        >
+          <a
+            href="#"
+            class="text-amber-600/80 hover:text-[rgb(211 137 81)] transition-all duration-300 hover:scale-110"
+            >Privacy Policy</a
+          >
+          <a
+            href="#"
+            class="text-amber-600/80 hover:text-[rgb(211 137 81)] transition-all duration-300 hover:scale-110"
+            >Terms of Service</a
+          >
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <!-- <script src="./newScript.js"></script> -->
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to(".flip-card", {
+                opacity:1,
+                duration: 0.1,
+                ease: "none"
+            });
+            const tl = gsap.timeline();
+
+            tl.from(".flip-card-inner", {
+                y: -500,
+                rotateY: 360,
+                duration: 1,
+                ease: "none"
+            })
+            .to(".flip-card-inner", {
+                scale: 3,
+                duration: 0.5,
+                ease: "none"
+            })
+            .to("#loader", {
+                opacity:0,
+                duration:1,
+                oncomplete:()=>{
+                    document.getElementById('loader').style.display="none";
+                }
+            });
+            const scrollWrappers = document.querySelectorAll('.scrollWrapper');
+            scrollWrappers.forEach((elm,idx)=>{
+                const paper = elm.querySelector('.scrollPaper')
+                const tl2 = gsap.timeline({
+                    scrollTrigger:{
+                        trigger:elm,
+                        start:'top 70%',
+                        end:'+=500',
+                        scrub:true,
+                        markers:true
+                    }
+                });
+    
+                tl2.to(paper,{
+                    height:500,
+                    duration:1,
+                    ease:'none'
+                })
+            })
+            
+        });
+     </script>
+  </body>
+</html>
