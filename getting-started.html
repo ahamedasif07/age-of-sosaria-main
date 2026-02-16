@@ -259,83 +259,102 @@
   <body
     class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat"
   >
-    <header
-      class="w-full max-w flex flex-col relative z-50 bg-[url('./images/header-bg.png')]"
-    >
-      <!-- ===header wrapper start=== -->
-      <div
-        class="flex justify-center items-center py-0 pt-6 pb-3 px-6 md:px-12"
+    <!-- ===== MAIN HEADER WRAPPER ===== -->
+    <div class="w-full fixed top-0 left-0 z-50 bg-black">
+      <!-- ===== HEADER START ===== -->
+      <header
+        class="w-full max-w flex flex-col bg-[url('./images/header-bg.png')]"
       >
-        <!-- ==headerlogo== -->
-        <div class="hidden md:flex w-fit h-auto justify-start">
-          <img
-            src="/images/headerLogo.png"
-            alt="Logo"
-            class="w-24 aspect-1/1 border border-amber-600/50 rounded-full"
-          />
-        </div>
-        <!-- ==heading=== -->
-        <div class="text-center">
-          <h1 class="headerHeading">Age of Sosaria</h1>
-        </div>
-      </div>
-      <!-- ===header wrapper end=== -->
-    </header>
-    <!-- ===navigation bar start==== -->
-    <nav
-      class="w-full h-auto pt-8 pb-6 flex justify-center items-center shadow-2xl relative"
-    >
-      <ul id="navLinks" class="hidden md:flex flex-row gap-8 items-center">
-        <li class="animate-fadeInUp delay-100">
-          <a
-            href="/"
-            class="text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
-            >Home</a
-          >
-        </li>
-        <li class="animate-fadeInUp delay-200">
-          <a
-            href="/getting-started.html"
-            target="_blank"
-            class="text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
-            >Getting Started</a
-          >
-        </li>
-        <li class="animate-fadeInUp delay-300">
-          <a
-            href="/rule.html"
-            target="_blank"
-            class="text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
-            >Rules</a
-          >
-        </li>
-        <li class="animate-fadeInUp delay-300">
-          <a
-            href="/rule.html"
-            target="_blank"
-            class="text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
-            >wiki</a
-          >
-        </li>
-        <li class="animate-fadeInUp delay-400">
-          <a
-            href="/contact.html"
-            class="text-sosaria hover:text-yellow-500 uppercase text-xs md:text-sm font-bold py-2 px-5 transition-all duration-300 hover:scale-110"
-            >Contact Us</a
-          >
-        </li>
+        <div
+          class="flex items-center py-0 pt-6 pb-3 px-6 md:px-12 justify-between md:justify-center relative"
+        >
+          <!-- Logo -->
+          <div class="flex w-[250px] h-[90px] justify-center items-center">
+            <img
+              src="/images/logo-png.png"
+              alt="Logo"
+              class="obj-cover w-[250px] h-[130px]"
+            />
+          </div>
 
-        <li class="md:hidden w-full pt-4">
-          <a
-            href="#"
-            class="text-gold uppercase text-sm font-bold py-3 px-5 border border-gold/50 block text-center bg-gold/5"
+          <!-- Mobile Menu Button -->
+          <button
+            id="menuBtn"
+            class="md:hidden text-[#8B4513] text-3xl focus:outline-none absolute right-6"
           >
-            Donate Now
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <!-- ===navigation bar start==== -->
+            ☰
+          </button>
+        </div>
+      </header>
+      <!-- ===== HEADER END ===== -->
+
+      <!-- ===== NAVBAR START ===== -->
+      <nav
+        class="w-full h-auto pt-8 pb-4 flex justify-center items-center shadow-2xl relative"
+      >
+        <ul
+          id="navLinks"
+          class="hidden md:flex flex-col md:flex-row gap-8 items-center absolute md:static top-full md:top-auto left-0 w-full md:w-auto bg-black opacity-98 md:bg-transparent py-6 md:py-0 z-40"
+        >
+          <li class="animate-fadeInUp delay-100">
+            <a
+              href="/"
+              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-2 px-5 transition-all duration-300 hover:scale-110 block"
+            >
+              Home
+            </a>
+          </li>
+
+          <li class="animate-fadeInUp delay-200">
+            <a
+              href="/getting-started.html"
+              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-2 px-5 transition-all duration-300 hover:scale-110 block"
+            >
+              Getting Started
+            </a>
+          </li>
+
+          <li class="animate-fadeInUp delay-300">
+            <a
+              href="/rule.html"
+              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-2 px-5 transition-all duration-300 hover:scale-110 block"
+            >
+              Rules
+            </a>
+          </li>
+
+          <li class="animate-fadeInUp delay-300">
+            <a
+              href="/rule.html"
+              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-2 px-5 transition-all duration-300 hover:scale-110 block"
+            >
+              Wiki
+            </a>
+          </li>
+
+          <li class="animate-fadeInUp delay-400">
+            <a
+              href="/contact.html"
+              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-2 px-5 transition-all duration-300 hover:scale-110 block"
+            >
+              Contact Us
+            </a>
+          </li>
+
+          <!-- Mobile Donate -->
+          <li class="md:hidden w-full pt-4 px-6">
+            <a
+              href="#"
+              class="text-gold uppercase text-sm font-bold py-3 px-5 border border-gold/50 block text-center bg-gold/5"
+            >
+              Donate Now
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- ===== NAVBAR END ===== -->
+    </div>
+    <!-- ===== WRAPPER END ===== -->
 
     <section
       id="loader"
@@ -373,7 +392,7 @@
 
     <!-- home page content here  -->
     <main
-      class="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
+      class="relative pt-[200px] md:pt-[225px] min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
       style="
         background-image: url(&quot;/images/BGDark.png&quot;);
         background-attachment: fixed;
@@ -698,67 +717,72 @@
       </div>
     </main>
     <footer
-      class="w-full py-10 px-4 border-t border-white/5 bg-[#2c1500] animate-on-scroll"
+      class="relative w-full py-8 overflow-hidden relative border-t-2 border-[#B07845] px-4 bg-[#2c1500] animate-on-scroll overflow-hidden"
       data-animate="fadeInUp"
+      style="
+        background-image: url(&quot;/images//BGDark.png&quot;);
+        background-size: cover;
+        background-position: center;
+      "
     >
+      <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+
       <div
-        class="max-w-[1100px] mx-auto flex flex-col items-center justify-center space-y-6"
+        class="relative z-10 max-w-[1100px] mx-auto flex flex-col items-center justify-center space-y-8"
       >
         <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
           <a
             href="#"
-            class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+            class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110"
           >
             Downloads
           </a>
-          <span class="text-amber-600/80 hidden md:inline">|</span>
+          <span class="text-amber-500 hidden md:inline">|</span>
           <a
             href="#"
-            class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+            class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110"
           >
             Privacy
           </a>
-          <span class="text-amber-600/80 hidden md:inline">|</span>
+          <span class="text-amber-500 hidden md:inline">|</span>
           <a
             href="#"
-            class="font-cinzel font-bold uppercase tracking-widest text-[#864d22] transition-all duration-300 hover:text-[#ffd700] hover:-translate-y-1 [text-shadow:1px_1px_0px_#000,2px_2px_0px_#4d2a13,3px_4px_6px_rgba(0,0,0,0.8)] hover:scale-110"
+            class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110"
           >
             Rules
           </a>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center gap-4 text-center">
-          <div class="flex items-center gap-2">
+        <div
+          class="flex flex-col md:flex-row items-center gap-4 text-center bg-black/30 p-4 rounded-lg backdrop-blur-sm border border-white/10"
+        >
+          <div class="flex items-center gap-3">
             <img
-              src="/images/UOIcon (1).png"
-              alt=""
-              class="w-10 h-10 border-2 border-yellow-800 opacity-40 transition-all duration-300 hover:opacity-70 hover:scale-110"
+              src="/images/icon-128x (1).png"
+              alt="Logo"
+              class="w-12 h-12 rounded-full transition-all duration-300 hover:scale-110"
             />
-            <span
-              class="font-cinzel font-semibold text-amber-600/80 [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
-            >
-              © Age of Sosaria
+            <span class="font-bold h-16 w-[130px]">
+              <img
+                src="/images/logo-png.png"
+                alt="Logo"
+                class="w-full h-full transition-all duration-300 hover:scale-110"
+              />
             </span>
           </div>
-          <span class="text-[rgb(211 137 81)]/50 hidden md:inline">•</span>
-          <span
-            class="font-cinzel italic text-amber-600/80 [text-shadow:1px_1px_2px_rgba(0,0,0,0.8)]"
-          >
+
+          <span class="italic text-[#B57B47]">
             Custom Ultima Online Shard
           </span>
         </div>
 
         <div
-          class="flex gap-6 uppercase text-[10px] tracking-[0.2em] font-bold"
+          class="flex gap-8 uppercase text-[11px] tracking-[0.2em] font-bold"
         >
-          <a
-            href="#"
-            class="text-amber-600/80 hover:text-[rgb(211 137 81)] transition-all duration-300 hover:scale-110"
+          <a href="#" class="text-[#B57B47] transition-all duration-300"
             >Privacy Policy</a
           >
-          <a
-            href="#"
-            class="text-amber-600/80 hover:text-[rgb(211 137 81)] transition-all duration-300 hover:scale-110"
+          <a href="#" class="text-[#B57B47] transition-all duration-300"
             >Terms of Service</a
           >
         </div>
@@ -766,6 +790,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="nav.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
