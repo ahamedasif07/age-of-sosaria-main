@@ -1,80 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap");
-  @font-face {
-    font-family: 'font1';
-    src: url('./font1.ttf') format('truetype');
-  }
 @font-face {
-  font-family: 'SpecialElite-Regular';
-  src: url('./SpecialElite-Regular.ttf') format('truetype');
+  font-family: "font1";
+  src: url("./font1.ttf") format("truetype");
 }
-.gold-chisel-text{
-  width: fit-content;
-  height: auto;
-  margin: 0 auto;
-  font-weight: 700;
-  text-transform: normal;
-  line-height: 1.2;
-  font-family: "font1", serif;
-  letter-spacing: -2px;
-  background: url('./images/teaxture.png') repeat;
-  background-size: contain;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: rgb(255, 193, 113); 
+@font-face {
+  font-family: "SpecialElite-Regular";
+  src: url("./SpecialElite-Regular.ttf") format("truetype");
 }
-h2.gold-chisel-text {
-  position: relative;
-  width: fit-content;
-  height: auto;
-  margin: 0 auto;
-  font-size: 56px;
-  font-weight: 700;
-  text-transform: normal;
-  line-height: 1.2;
-  font-family: "font1", serif;
-  letter-spacing: -2px;
-  background: url('./images/teaxture.png') repeat;
-  background-size: contain;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: rgb(255, 193, 113); 
 
-  text-shadow:
-    1px 1px 3px #000000a2,
-    0px 0px 15px rgb(0, 0, 0);
-  filter: drop-shadow(0px 0px 4px #2e1b00);
-  -webkit-text-stroke: 1px #442801;
-  text-stroke: 2px #422700;
-}
-h2.gold-chisel-text span{
-  font-variant: small-caps;
-}
-.medieval-text-style p {
-  font-size: 32px;
-   color: #f5a946 !important;
-  font-family: "font1", serif;
-  line-height: 1;
-  display: inline-block;
-  width: 100%;
-  font-weight: 700;
-  letter-spacing: auto;
-  word-spacing: auto;
-  text-transform: lowercase;
-  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black;
-  /* filter: drop-shadow(0px 0px 6px rgba(77, 50, 0, 0.616)); */
-  /* text-shadow: 1px 2px 12px #000; */
-  -webkit-text-stroke: .2px #000000;
-  text-stroke: 1.5px #000;
-  
-}
-nav{
+nav {
   background-size: 100% 100%;
   background-position: center;
-  background-image: url('./images/nav-bg.png');
-
+  background-image: url("./images/nav-bg.png");
 }
-.bgImage{
-  filter: contrast(1.2) brightness(0.7) ;
+.bgImage {
+  filter: contrast(1.2) brightness(0.7);
 }
-header{
+header {
   background-size: 100% 100%;
 }
 h1.headerHeading {
@@ -86,15 +28,15 @@ h1.headerHeading {
   line-height: 1.2;
   font-family: "font1", serif;
   letter-spacing: -2px;
-  background: url('./images/teaxture.png') repeat;
+  background: url("./images/teaxture.png") repeat;
   background-size: contain;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: rgba(255, 193, 113, 0); 
+  -webkit-text-fill-color: rgba(255, 193, 113, 0);
   -webkit-text-stroke: 2px #331e00;
   text-stroke: 2px #422700;
   text-shadow: 0 0 5px rgba(255, 169, 56, 0.342);
 }
-.sectionHeading{
+.sectionHeading {
   width: fit-content;
   height: auto;
   margin: 0 auto;
@@ -104,55 +46,79 @@ h1.headerHeading {
   margin-bottom: 50px;
   font-family: "font1", serif;
   letter-spacing: -2px;
-  background: url('./images/teaxture.png') repeat;
+  background: url("./images/teaxture.png") repeat;
   background-size: contain;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: rgb(255, 193, 113); 
+  -webkit-text-fill-color: rgb(255, 193, 113);
   filter: drop-shadow(0px 0px 12px #2e1b00);
   -webkit-text-stroke: 1px #3f2500;
   text-stroke: 2px #422700;
-  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 2px 2px black, -2px -2px black, 2px -2px 15px black, -2px 2px 15px black;
+  text-shadow:
+    2px 0 black,
+    -2px 0 black,
+    0 2px black,
+    0 -2px black,
+    2px 2px black,
+    -2px -2px black,
+    2px -2px 15px black,
+    -2px 2px 15px black;
   z-index: 9;
 }
-.paragraph{
-   width: fit-content;
+.paragraph {
+  width: fit-content;
   height: auto;
   margin: 0 auto;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 700;
   text-transform: normal;
   line-height: 1.2;
   font-family: "font1", serif;
   letter-spacing: -2px;
-  background: url('./images/teaxture.png') repeat;
+  background: url("./images/teaxture.png") repeat;
   background-size: contain;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: rgb(255, 193, 113); 
+  -webkit-text-fill-color: rgb(255, 193, 113);
   filter: drop-shadow(0px 0px 12px #2e1b00);
   -webkit-text-stroke: 1px #3f2500;
   text-stroke: 2px #422700;
-  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 2px 2px black, -2px -2px black, 2px -2px 15px black, -2px 2px 15px black;
+  text-shadow:
+    2px 0 black,
+    -2px 0 black,
+    0 2px black,
+    0 -2px black,
+    2px 2px black,
+    -2px -2px black,
+    2px -2px 15px black,
+    -2px 2px 15px black;
   z-index: 9;
 }
 
-#sectionTwo ul li{
+#sectionTwo ul li {
   width: 100%;
   height: auto;
   margin: 0 auto;
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 700;
   text-align: left;
   text-transform: normal;
   line-height: 1.2;
   font-family: "font1", serif;
   letter-spacing: -2px;
-  background: url('./images/teaxture.png') repeat;
+  background: url("./images/teaxture.png") repeat;
   background-size: contain;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: rgb(255, 193, 113); 
+  -webkit-text-fill-color: rgb(255, 193, 113);
   filter: drop-shadow(0px 0px 12px #2e1b00);
   -webkit-text-stroke: 1px #3f2500;
   text-stroke: 2px #422700;
-  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black, 2px 2px black, -2px -2px black, 2px -2px 15px black, -2px 2px 15px black;
+  text-shadow:
+    2px 0 black,
+    -2px 0 black,
+    0 2px black,
+    0 -2px black,
+    2px 2px black,
+    -2px -2px black,
+    2px -2px 15px black,
+    -2px 2px 15px black;
   z-index: 9;
 }
