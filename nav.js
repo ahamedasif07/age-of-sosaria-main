@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.classList.toggle("hidden");
 
     // Icon Change
-    menuBtn.textContent = menuBtn.textContent === "☰" ? "✖" : "☰";
+    menuBtn.textContent = menuBtn.textContent === "✖" ? "☰" : "✖";
   });
 
   // Auto close on mobile link click
