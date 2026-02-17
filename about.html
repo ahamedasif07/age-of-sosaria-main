@@ -1,300 +1,312 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sosaria</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
-    rel="stylesheet" />
-  <link rel="icon" type="image/png" href="/images/UOIcon (1).png" />
-  <link href="style.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            medieval: ["MedievalSharp", "cursive"],
-            cinzel: ["Cinzel", "serif"],
-          },
-          colors: {
-            sosaria: "#B48446",
-            gold: "#B57B47",
-            darkBg: "#0A0A0A",
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sosaria</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/images/UOIcon (1).png" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              medieval: ["MedievalSharp", "cursive"],
+              cinzel: ["Cinzel", "serif"],
+            },
+            colors: {
+              sosaria: "#B48446",
+              gold: "#B57B47",
+              darkBg: "#0A0A0A",
+            },
           },
         },
-      },
-    };
-  </script>
-  <style type="text/css">
-    .glowing-text {
-      color: #b48446;
-      text-shadow:
-        0 0 5px rgba(0, 0, 0, 1),
-        0 0 15px rgba(180, 132, 70, 0.6),
-        0 0 30px rgba(0, 0, 0, 0.9);
-      letter-spacing: 0.1em;
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
+      };
+    </script>
+    <style type="text/css">
+      .glowing-text {
+        color: #b48446;
         text-shadow:
           0 0 5px rgba(0, 0, 0, 1),
           0 0 15px rgba(180, 132, 70, 0.6),
           0 0 30px rgba(0, 0, 0, 0.9);
+        letter-spacing: 0.1em;
+        animation: glow 3s ease-in-out infinite;
       }
 
-      50% {
-        text-shadow:
-          0 0 10px rgba(0, 0, 0, 1),
-          0 0 25px rgba(180, 132, 70, 0.8),
-          0 0 40px rgba(180, 132, 70, 0.6);
-      }
-    }
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow:
+            0 0 5px rgba(0, 0, 0, 1),
+            0 0 15px rgba(180, 132, 70, 0.6),
+            0 0 30px rgba(0, 0, 0, 0.9);
+        }
 
-    /* Fade in animations */
-    @keyframes fadeInUp {
-      from {
+        50% {
+          text-shadow:
+            0 0 10px rgba(0, 0, 0, 1),
+            0 0 25px rgba(180, 132, 70, 0.8),
+            0 0 40px rgba(180, 132, 70, 0.6);
+        }
+      }
+
+      /* Fade in animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .animate-fadeInDown {
+        animation: fadeInDown 0.8s ease-out forwards;
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      .animate-scaleIn {
+        animation: scaleIn 0.8s ease-out forwards;
+      }
+
+      .animate-slideInLeft {
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
+
+      .animate-slideInRight {
+        animation: slideInRight 0.8s ease-out forwards;
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Delay classes */
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+
+      .delay-700 {
+        animation-delay: 0.7s;
+      }
+
+      .delay-800 {
+        animation-delay: 0.8s;
+      }
+
+      /* Initially hidden for animation */
+      .animate-on-scroll {
         opacity: 0;
-        transform: translateY(30px);
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+      /* Active Link Style - IMPROVED */
+      .nav-link-active {
+        color: #c6935c !important;
+        border: 1px solid rgba(255, 215, 0, 0.5) !important;
+        background: rgba(255, 215, 0, 0.1) !important;
 
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
+        border-radius: 4px;
+        transform: scale(1.05);
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
+      /* Nav item base style */
+      .nav-item {
+        position: relative;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        border-radius: 4px;
       }
 
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-50px);
+      /* Mobile Menu Animation */
+      #navLinks.mobile-menu-open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(12px);
+        padding: 2rem 1.5rem;
+        border-bottom: 2px solid #b48446;
+        z-index: 100;
+        animation: slideDown 0.3s ease-out forwards;
       }
 
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
 
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(50px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0);
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    .animate-fadeInUp {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    .animate-fadeInDown {
-      animation: fadeInDown 0.8s ease-out forwards;
-    }
-
-    .animate-fadeIn {
-      animation: fadeIn 1s ease-out forwards;
-    }
-
-    .animate-scaleIn {
-      animation: scaleIn 0.8s ease-out forwards;
-    }
-
-    .animate-slideInLeft {
-      animation: slideInLeft 0.8s ease-out forwards;
-    }
-
-    .animate-slideInRight {
-      animation: slideInRight 0.8s ease-out forwards;
-    }
-
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-
-    /* Delay classes */
-    .delay-100 {
-      animation-delay: 0.1s;
-    }
-
-    .delay-200 {
-      animation-delay: 0.2s;
-    }
-
-    .delay-300 {
-      animation-delay: 0.3s;
-    }
-
-    .delay-400 {
-      animation-delay: 0.4s;
-    }
-
-    .delay-500 {
-      animation-delay: 0.5s;
-    }
-
-    .delay-600 {
-      animation-delay: 0.6s;
-    }
-
-    .delay-700 {
-      animation-delay: 0.7s;
-    }
-
-    .delay-800 {
-      animation-delay: 0.8s;
-    }
-
-    /* Initially hidden for animation */
-    .animate-on-scroll {
-      opacity: 0;
-    }
-
-    /* Active Link Style - IMPROVED */
-    .nav-link-active {
-      color: #c6935c !important;
-      border: 1px solid rgba(255, 215, 0, 0.5) !important;
-      background: rgba(255, 215, 0, 0.1) !important;
-
-      border-radius: 4px;
-      transform: scale(1.05);
-    }
-
-    /* Nav item base style */
-    .nav-item {
-      position: relative;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-      border-radius: 4px;
-    }
-
-    /* Mobile Menu Animation */
-    #navLinks.mobile-menu-open {
-      display: flex !important;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: rgba(10, 10, 10, 0.98);
-      backdrop-filter: blur(12px);
-      padding: 2rem 1.5rem;
-      border-bottom: 2px solid #b48446;
-      z-index: 100;
-      animation: slideDown 0.3s ease-out forwards;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
+      /* Mobile menu items spacing */
+      #navLinks.mobile-menu-open li {
+        width: 100%;
+        margin-bottom: 1rem;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      #navLinks.mobile-menu-open .nav-item {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
       }
-    }
+    </style>
 
-    /* Mobile menu items spacing */
-    #navLinks.mobile-menu-open li {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Tagesschrift&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-    #navLinks.mobile-menu-open .nav-item {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 1rem;
-    }
-  </style>
+  <body
+    class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat"
+  >
+    <!-- ===== MAIN HEADER WRAPPER ===== -->
+    <div class="w-full fixed top-0 left-0 z-50 bg-black">
+      <!-- ===== HEADER START ===== -->
+      <header
+        class="w-full max-w flex flex-col bg-[url('./images/header-bg.png')]"
+      >
+        <div
+          class="flex items-center py-0 pt-6 pb-3 px-6 md:px-12 justify-between md:justify-center relative"
+        >
+          <!-- Logo -->
+          <div class="flex w-[250px] h-[90px] justify-center items-center">
+            <img
+              src="/images/logo-png.png"
+              alt="Logo"
+              class="obj-cover w-[250px] h-[130px]"
+            />
+          </div>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Tagesschrift&display=swap"
-    rel="stylesheet" />
-</head>
-
-<body
-  class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat">
-  <!-- ===== MAIN HEADER WRAPPER ===== -->
-  <div class="w-full fixed top-0 left-0 z-50 bg-black">
-    <!-- ===== HEADER START ===== -->
-    <header class="w-full max-w flex flex-col bg-[url('./images/header-bg.png')]">
-      <div class="flex items-center py-0 pt-6 pb-3 px-6 md:px-12 justify-between md:justify-center relative">
-        <!-- Logo -->
-        <div class="flex w-[250px] h-[90px] justify-center items-center">
-          <img src="/images/logo-png.png" alt="Logo" class="obj-cover w-[250px] h-[130px]" />
+          <!-- Mobile Menu Button -->
+          <button
+            id="menuBtn"
+            class="md:hidden text-[#8B4513] text-3xl focus:outline-none absolute right-6"
+          >
+            ☰
+          </button>
         </div>
+      </header>
+      <!-- ===== HEADER END ===== -->
 
-        <!-- Mobile Menu Button -->
-        <button id="menuBtn" class="md:hidden text-[#8B4513] text-3xl focus:outline-none absolute right-6">
-          ☰
-        </button>
-      </div>
-    </header>
-    <!-- ===== HEADER END ===== -->
-
-    <!-- ===== NAVBAR START ===== -->
-    <nav
+      <!-- ===== NAVBAR START ===== -->
+      <nav
         class="w-full mx-auto h-auto pt-8 pb-4 flex justify-center items-center shadow-2xl relative"
       >
         <ul
@@ -365,212 +377,232 @@
           </li>
         </ul>
       </nav>
-    <!-- ===== NAVBAR END ===== -->
-  </div>
-  <!-- ===== WRAPPER END ===== -->
+      <!-- ===== NAVBAR END ===== -->
+    </div>
+    <!-- ===== WRAPPER END ===== -->
 
-  <section id="loader"
-    class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] fixed top-0 left-0 z-50">
-    <!-- ====animateContainer==== -->
-    <div class="flip-card w-[500px] aspect-square [perspective:1000px] opacity-10">
+    <section
+      id="loader"
+      class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] fixed top-0 left-0 z-50"
+    >
+      <!-- ====animateContainer==== -->
       <div
-        class="flip-card-inner relative w-full max-w-[500px] h-full max-h-[500px] text-center [transform-style:preserve-3d]">
+        class="flip-card w-[500px] aspect-square [perspective:1000px] opacity-10"
+      >
         <div
-          class="flip-card-front absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center">
-          <img src="./images/icon-pfp-1080__2_-removebg-preview.png" alt="coin" class="w-full h-full obj-cover" />
-        </div>
-        <div
-          class="flip-card-back absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center [transform:rotateY(180deg)]">
-          <img src="./images/icon-pfp-1080__2_-removebg-preview.png" alt="coin" class="w-full h-full obj-cover" />
+          class="flip-card-inner relative w-full max-w-[500px] h-full max-h-[500px] text-center [transform-style:preserve-3d]"
+        >
+          <div
+            class="flip-card-front absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center"
+          >
+            <img
+              src="./images/icon-pfp-1080__2_-removebg-preview.png"
+              alt="coin"
+              class="w-full h-full obj-cover"
+            />
+          </div>
+          <div
+            class="flip-card-back absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center [transform:rotateY(180deg)]"
+          >
+            <img
+              src="./images/icon-pfp-1080__2_-removebg-preview.png"
+              alt="coin"
+              class="w-full h-full obj-cover"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <!-- ====animateContainer==== -->
-  </section>
+      <!-- ====animateContainer==== -->
+    </section>
 
-  <!-- home page content here  -->
-  <main
-    class="relative pt-[200px] md:pt-[225px] min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
-    style="
+    <!-- home page content here  -->
+    <main
+      class="relative pt-[200px] md:pt-[225px] min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
+      style="
         background-image: url(&quot;/images/BGDark.png&quot;);
         background-attachment: fixed;
-      ">
-    <div class="w-full max-w-[1200px] mx-auto">
-      <!-- ====section1==== -->
-      <section id="sectionTwo" class="w-full h-auto relative py-5">
-        <div class="w-full  flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
-          style="
+      "
+    >
+      <div class="w-full max-w-[1200px] mx-auto">
+        <!-- ====section1==== -->
+        <section id="sectionTwo" class="w-full h-auto relative py-5">
+          <div
+            class="w-full flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
+            style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            ">
-          <div class="relative w-full text-center">
-            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
-              About Age of Sosaria
-            </h2>
+            "
+          >
+            <div class="relative w-full text-center">
+              <h2
+                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
+                About Age of Sosaria
+              </h2>
 
-            <div class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-              <p class="paragraph">
-                A shard built from passion, experience, and respect for
-                classic Ultima Online.
-              </p>
+              <div
+                class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
+              >
+                <p class="paragraph">
+                  A shard built from passion, experience, and respect for
+                  classic Ultima Online.
+                </p>
 
-              <p class="paragraph">
-                Age of Sosaria was created with a simple goal: to bring back
-                the feeling of classic Ultima Online while offering thoughtful
-                improvements and custom content designed for long-term
-                enjoyment.
-              </p>
+                <p class="paragraph">
+                  Age of Sosaria was created with a simple goal: to bring back
+                  the feeling of classic Ultima Online while offering thoughtful
+                  improvements and custom content designed for long-term
+                  enjoyment.
+                </p>
 
-              <p class="paragraph">
-                This shard is not a quick project or a short-lived experiment.
-                It is the result of years of experience, careful design
-                decisions, and a deep respect for what made Ultima Online
-                special.
-              </p>
+                <p class="paragraph">
+                  This shard is not a quick project or a short-lived experiment.
+                  It is the result of years of experience, careful design
+                  decisions, and a deep respect for what made Ultima Online
+                  special.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- section two -->
-      <section id="sectionTwo" class="w-full h-auto relative py-5">
-        <div class="w-full  flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
-          style="
+        <!-- section two -->
+        <section id="sectionTwo" class="w-full h-auto relative py-5">
+          <div
+            class="w-full flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
+            style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            ">
-          <div class="relative w-full text-center">
-            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
-              Our Philosophy
-            </h2>
+            "
+          >
+            <div class="relative w-full text-center">
+              <h2
+                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
+                Our Philosophy
+              </h2>
 
-            <div class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-              <p class="paragraph">
-                We believe the best shards are built around meaningful
-                progression, player interaction, and a world that feels alive.
-              </p>
+              <div
+                class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
+              >
+                <p class="paragraph">
+                  We believe the best shards are built around meaningful
+                  progression, player interaction, and a world that feels alive.
+                </p>
 
-              <p class="paragraph">
-                Every system is designed with balance, fairness, and longevity
-                in mind. We avoid shortcuts, overpowered rewards, and features
-                that undermine the integrity of the game.
-              </p>
+                <p class="paragraph">
+                  Every system is designed with balance, fairness, and longevity
+                  in mind. We avoid shortcuts, overpowered rewards, and features
+                  that undermine the integrity of the game.
+                </p>
 
-              <p class="paragraph">
-                This shard is not a quick project or a short-lived experiment.
-                It is the result of years of experience, careful design
-                decisions, and a deep respect for what made Ultima Online
-                special.
-              </p>
+                <p class="paragraph">
+                  This shard is not a quick project or a short-lived experiment.
+                  It is the result of years of experience, careful design
+                  decisions, and a deep respect for what made Ultima Online
+                  special.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- section three -->
-      <section id="sectionTwo" class="w-full h-auto relative py-5">
-        <div class="w-full  flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
-          style="
+        </section>
+        <!-- section three -->
+        <section id="sectionTwo" class="w-full h-auto relative py-5">
+          <div
+            class="w-full flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
+            style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            ">
-          <div class="relative w-full text-center">
-            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
-              Custom, Not Chaotic
-            </h2>
+            "
+          >
+            <div class="relative w-full text-center">
+              <h2
+                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
+                Custom, Not Chaotic
+              </h2>
 
-            <div class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-              <p class="paragraph">
-                Age of Sosaria features custom mechanics and content, but
-                always within the spirit of classic gameplay. Our goal is to
-                enhance the experience, not replace it.
-              </p>
+              <div
+                class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
+              >
+                <p class="paragraph">
+                  Age of Sosaria features custom mechanics and content, but
+                  always within the spirit of classic gameplay. Our goal is to
+                  enhance the experience, not replace it.
+                </p>
 
-              <p class="paragraph">
-                You won t find excessive handouts, pay-to-win systems, or
-                features that trivialize progression. Success is earned
-                through time, effort, and smart choices.
-              </p>
+                <p class="paragraph">
+                  You won t find excessive handouts, pay-to-win systems, or
+                  features that trivialize progression. Success is earned
+                  through time, effort, and smart choices.
+                </p>
 
-              <p class="paragraph">
-                This shard is not a quick project or a short-lived experiment.
-                It is the result of years of experience, careful design
-                decisions, and a deep respect for what made Ultima Online
-                special.
-              </p>
+                <p class="paragraph">
+                  This shard is not a quick project or a short-lived experiment.
+                  It is the result of years of experience, careful design
+                  decisions, and a deep respect for what made Ultima Online
+                  special.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- section four -->
-      <section id="sectionTwo" class="w-full h-auto relative py-5">
-        <div class="w-full  flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
-          style="
+        </section>
+        <!-- section four -->
+        <section id="sectionTwo" class="w-full h-auto relative py-5">
+          <div
+            class="w-full flex items-center justify-center p-4 md:p-12 bg-no-repeat relative z-53"
+            style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            ">
-          <div class="relative w-full text-center">
-            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
-              Active Development
-            </h2>
+            "
+          >
+            <div class="relative w-full text-center">
+              <h2
+                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
+                data-animate="fadeInDown"
+              >
+                Active Development
+              </h2>
 
-            <div class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-              <p class="paragraph">
-                The world of Sosaria is always evolving. We regularly improve
-                systems, add new content, and listen to community feedback to
-                shape the future of the shard.
-              </p>
+              <div
+                class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
+              >
+                <p class="paragraph">
+                  The world of Sosaria is always evolving. We regularly improve
+                  systems, add new content, and listen to community feedback to
+                  shape the future of the shard.
+                </p>
 
-              <p class="paragraph">
-                Our focus is on stability, fairness, and a long-lasting world
-                that players can call home.
-              </p>
+                <p class="paragraph">
+                  Our focus is on stability, fairness, and a long-lasting world
+                  that players can call home.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-  </main>
-  <footer
-    class="relative w-full py-8 overflow-hidden relative border-t-2 border-[#B07845] px-4 bg-[#2c1500] animate-on-scroll overflow-hidden"
-    data-animate="fadeInUp" style="
+        </section>
+      </div>
+    </main>
+    <footer
+      class="relative w-full py-8 overflow-hidden relative border-t-2 border-[#B07845] px-4 bg-[#2c1500] animate-on-scroll overflow-hidden"
+      data-animate="fadeInUp"
+      style="
         background-image: url(&quot;/images//BGDark.png&quot;);
         background-size: cover;
         background-position: center;
-      ">
-    <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
-
-    <div class="relative z-10  mx-auto flex flex-col items-center justify-center space-y-8">
-      <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-        <a href="#"
-          class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110">
-          Downloads
-        </a>
-        <span class="text-amber-500 hidden md:inline">|</span>
-        <a href="#"
-          class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110">
-          Wiki
-        </a>
-        <span class="text-amber-500 hidden md:inline">|</span>
-        <a href="/rule.html"
-          class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110">
-          Rules
-        </a>
-      </div>
+      "
+    >
+      <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       <div
-<<<<<<< HEAD
-        class="flex flex-col md:flex-row items-center gap-4 text-center bg-black/30 p-4 rounded-lg backdrop-blur-sm border border-white/10">
-        <div class="flex items-center gap-3">
-          <span class="font-bold h-16 w-[130px]">
-            <img src="/images/logo-png.png" alt="Logo"
-              class="w-full h-full transition-all duration-300 hover:scale-110" />
-=======
-        class="relative z-10  mx-auto flex flex-col items-center justify-center space-y-8"
+        class="relative z-10 mx-auto flex flex-col items-center justify-center space-y-8"
       >
         <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
           <a
-            href="/download//Age-Of-Sosaria-Installer (1).exe"
-            download
+            href="/downlode.html"
             class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110"
           >
             Downloads
@@ -606,77 +638,80 @@
 
           <span class="italic text-[#B57B47]">
             Custom Ultima Online Shard
->>>>>>> dcbd80c16a9b03be09552f5df035f3ea1bc4e7e9
           </span>
         </div>
 
-        <span class="italic text-[#B57B47]">
-          Custom Ultima Online Shard
-        </span>
+        <div
+          class="flex gap-8 uppercase text-[11px] tracking-[0.2em] font-bold"
+        >
+          <a
+            href="/privacy-policy.html"
+            class="text-[#B57B47] transition-all duration-300"
+            >Privacy Policy</a
+          >
+          <a
+            href="/terms-of-service.html"
+            class="text-[#B57B47] transition-all duration-300"
+            >Terms of Service</a
+          >
+        </div>
       </div>
+    </footer>
 
-      <div class="flex gap-8 uppercase text-[11px] tracking-[0.2em] font-bold">
-        <a href="#" class="text-[#B57B47] transition-all duration-300">Privacy Policy</a>
-        <a href="#" class="text-[#B57B47] transition-all duration-300">Terms of Service</a>
-      </div>
-    </div>
-  </footer>
+    <script src="script.js"></script>
+    <script src="nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
-  <script src="script.js"></script>
-  <script src="nav.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <!-- <script src="./newScript.js"></script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".flip-card", {
+          opacity: 1,
+          duration: 0.1,
+          ease: "none",
+        });
+        const tl = gsap.timeline();
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-  <!-- <script src="./newScript.js"></script> -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.to(".flip-card", {
-        opacity: 1,
-        duration: 0.1,
-        ease: "none",
-      });
-      const tl = gsap.timeline();
-
-      tl.from(".flip-card-inner", {
-        y: -500,
-        rotateY: 360,
-        duration: 1,
-        ease: "none",
-      })
-        .to(".flip-card-inner", {
-          scale: 3,
-          duration: 0.5,
+        tl.from(".flip-card-inner", {
+          y: -500,
+          rotateY: 360,
+          duration: 1,
           ease: "none",
         })
-        .to("#loader", {
-          opacity: 0,
-          duration: 1,
-          oncomplete: () => {
-            document.getElementById("loader").style.display = "none";
-          },
-        });
-      const scrollWrappers = document.querySelectorAll(".scrollWrapper");
-      scrollWrappers.forEach((elm, idx) => {
-        const paper = elm.querySelector(".scrollPaper");
-        const tl2 = gsap.timeline({
-          scrollTrigger: {
-            trigger: elm,
-            start: "top 70%",
-            end: "+=500",
-            scrub: true,
-            markers: true,
-          },
-        });
+          .to(".flip-card-inner", {
+            scale: 3,
+            duration: 0.5,
+            ease: "none",
+          })
+          .to("#loader", {
+            opacity: 0,
+            duration: 1,
+            oncomplete: () => {
+              document.getElementById("loader").style.display = "none";
+            },
+          });
+        const scrollWrappers = document.querySelectorAll(".scrollWrapper");
+        scrollWrappers.forEach((elm, idx) => {
+          const paper = elm.querySelector(".scrollPaper");
+          const tl2 = gsap.timeline({
+            scrollTrigger: {
+              trigger: elm,
+              start: "top 70%",
+              end: "+=500",
+              scrub: true,
+              markers: true,
+            },
+          });
 
-        tl2.to(paper, {
-          height: 500,
-          duration: 1,
-          ease: "none",
+          tl2.to(paper, {
+            height: 500,
+            duration: 1,
+            ease: "none",
+          });
         });
       });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
