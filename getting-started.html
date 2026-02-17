@@ -1,850 +1,690 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sosaria</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="/images/icon-128x (1).png" />
-    <link href="style.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              medieval: ["MedievalSharp", "cursive"],
-              cinzel: ["Cinzel", "serif"],
-            },
-            colors: {
-              sosaria: "#B48446",
-              gold: "#FFD700",
-              darkBg: "#0A0A0A",
-            },
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sosaria</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=MedievalSharp&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/icon-128x (1).png" />
+  <link href="style.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            medieval: ["MedievalSharp", "cursive"],
+            cinzel: ["Cinzel", "serif"],
+          },
+          colors: {
+            sosaria: "#B48446",
+            gold: "#FFD700",
+            darkBg: "#0A0A0A",
           },
         },
-      };
-    </script>
-    <style type="text/css">
-      .glowing-text {
-        color: #b48446;
+      },
+    };
+  </script>
+  <style type="text/css">
+    .glowing-text {
+      color: #b48446;
+      text-shadow:
+        0 0 5px rgba(0, 0, 0, 1),
+        0 0 15px rgba(180, 132, 70, 0.6),
+        0 0 30px rgba(0, 0, 0, 0.9);
+      letter-spacing: 0.1em;
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
         text-shadow:
           0 0 5px rgba(0, 0, 0, 1),
           0 0 15px rgba(180, 132, 70, 0.6),
           0 0 30px rgba(0, 0, 0, 0.9);
-        letter-spacing: 0.1em;
-        animation: glow 3s ease-in-out infinite;
       }
 
-      @keyframes glow {
-        0%,
-        100% {
-          text-shadow:
-            0 0 5px rgba(0, 0, 0, 1),
-            0 0 15px rgba(180, 132, 70, 0.6),
-            0 0 30px rgba(0, 0, 0, 0.9);
-        }
-        50% {
-          text-shadow:
-            0 0 10px rgba(0, 0, 0, 1),
-            0 0 25px rgba(180, 132, 70, 0.8),
-            0 0 40px rgba(180, 132, 70, 0.6);
-        }
+      50% {
+        text-shadow:
+          0 0 10px rgba(0, 0, 0, 1),
+          0 0 25px rgba(180, 132, 70, 0.8),
+          0 0 40px rgba(180, 132, 70, 0.6);
+      }
+    }
+
+    /* Fade in animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
 
-      /* Fade in animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
       }
 
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      @keyframes scaleIn {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes slideInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      .animate-fadeInUp {
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      .animate-fadeInDown {
-        animation: fadeInDown 0.8s ease-out forwards;
-      }
-
-      .animate-fadeIn {
-        animation: fadeIn 1s ease-out forwards;
-      }
-
-      .animate-scaleIn {
-        animation: scaleIn 0.8s ease-out forwards;
-      }
-
-      .animate-slideInLeft {
-        animation: slideInLeft 0.8s ease-out forwards;
-      }
-
-      .animate-slideInRight {
-        animation: slideInRight 0.8s ease-out forwards;
-      }
-
-      .animate-float {
-        animation: float 3s ease-in-out infinite;
-      }
-
-      /* Delay classes */
-      .delay-100 {
-        animation-delay: 0.1s;
-      }
-      .delay-200 {
-        animation-delay: 0.2s;
-      }
-      .delay-300 {
-        animation-delay: 0.3s;
-      }
-      .delay-400 {
-        animation-delay: 0.4s;
-      }
-      .delay-500 {
-        animation-delay: 0.5s;
-      }
-      .delay-600 {
-        animation-delay: 0.6s;
-      }
-      .delay-700 {
-        animation-delay: 0.7s;
-      }
-      .delay-800 {
-        animation-delay: 0.8s;
-      }
-
-      /* Initially hidden for animation */
-      .animate-on-scroll {
+    @keyframes fadeIn {
+      from {
         opacity: 0;
       }
 
-      /* Active Link Style - IMPROVED */
-      .nav-link-active {
-        color: #c6935c !important;
-        border: 1px solid rgba(255, 215, 0, 0.5) !important;
-        background: rgba(255, 215, 0, 0.1) !important;
+      to {
+        opacity: 1;
+      }
+    }
 
-        border-radius: 4px;
-        transform: scale(1.05);
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
       }
 
-      /* Nav item base style */
-      .nav-item {
-        position: relative;
-        transition: all 0.3s ease;
-        border: 1px solid transparent;
-        border-radius: 4px;
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
       }
 
-      /* Mobile Menu Animation */
-      #navLinks.mobile-menu-open {
-        display: flex !important;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(12px);
-        padding: 2rem 1.5rem;
-        border-bottom: 2px solid #b48446;
-        z-index: 100;
-        animation: slideDown 0.3s ease-out forwards;
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
       }
 
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      /* Mobile menu items spacing */
-      #navLinks.mobile-menu-open li {
-        width: 100%;
-        margin-bottom: 1rem;
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .animate-fadeInDown {
+      animation: fadeInDown 0.8s ease-out forwards;
+    }
+
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .animate-scaleIn {
+      animation: scaleIn 0.8s ease-out forwards;
+    }
+
+    .animate-slideInLeft {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+
+    .animate-slideInRight {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Delay classes */
+    .delay-100 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-400 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-500 {
+      animation-delay: 0.5s;
+    }
+
+    .delay-600 {
+      animation-delay: 0.6s;
+    }
+
+    .delay-700 {
+      animation-delay: 0.7s;
+    }
+
+    .delay-800 {
+      animation-delay: 0.8s;
+    }
+
+    /* Initially hidden for animation */
+    .animate-on-scroll {
+      opacity: 0;
+    }
+
+    /* Active Link Style - IMPROVED */
+    .nav-link-active {
+      color: #c6935c !important;
+      border: 1px solid rgba(255, 215, 0, 0.5) !important;
+      background: rgba(255, 215, 0, 0.1) !important;
+
+      border-radius: 4px;
+      transform: scale(1.05);
+    }
+
+    /* Nav item base style */
+    .nav-item {
+      position: relative;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+
+    /* Mobile Menu Animation */
+    #navLinks.mobile-menu-open {
+      display: flex !important;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(12px);
+      padding: 2rem 1.5rem;
+      border-bottom: 2px solid #b48446;
+      z-index: 100;
+      animation: slideDown 0.3s ease-out forwards;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
       }
 
-      #navLinks.mobile-menu-open .nav-item {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 1rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-    </style>
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Tagesschrift&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body
-    class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat"
-  >
-    <!-- ===== MAIN HEADER WRAPPER ===== -->
-    <div class="w-full fixed top-0 left-0 z-50 bg-black">
-      <!-- ===== HEADER START ===== -->
-      <header
-        class="w-full max-w flex flex-col bg-[url('./images/header-bg.png')]"
-      >
-        <div
-          class="flex items-center py-0 pt-6 pb-3 px-6 md:px-12 justify-between md:justify-center relative"
-        >
-          <!-- Logo -->
-          <div class="flex w-[250px] h-[90px] justify-center items-center">
-            <img
-              src="/images/logo-png.png"
-              alt="Logo"
-              class="obj-cover w-[250px] h-[130px]"
-            />
-          </div>
+    /* Mobile menu items spacing */
+    #navLinks.mobile-menu-open li {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
 
-          <!-- Mobile Menu Button -->
-          <button
-            id="menuBtn"
-            class="md:hidden text-[#8B4513] text-3xl focus:outline-none absolute right-6"
-          >
-            ☰
-          </button>
+    #navLinks.mobile-menu-open .nav-item {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Tagesschrift&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body
+  class="relative min-h-screen w-full flex flex-col bg-darkBg font-medieval text-white m-0 p-0 overflow-x-hidden items-center justify-center bg-cover bg-center bg-no-repeat">
+  <!-- ===== MAIN HEADER WRAPPER ===== -->
+  <div class="w-full fixed top-0 left-0 z-50 bg-black">
+    <!-- ===== HEADER START ===== -->
+    <header class="w-full max-w flex flex-col bg-[url('./images/header-bg.png')]">
+      <div class="flex items-center py-0 pt-6 pb-3 px-6 md:px-12 justify-between md:justify-center relative">
+        <!-- Logo -->
+        <div class="flex w-[250px] h-[90px] justify-center items-center">
+          <img src="/images/logo-png.png" alt="Logo" class="obj-cover w-[250px] h-[130px]" />
         </div>
-      </header>
-      <!-- ===== HEADER END ===== -->
 
-      <!-- ===== NAVBAR START ===== -->
-      <nav
-        class="w-full mx-auto h-auto pt-8 pb-4 flex justify-center items-center shadow-2xl relative"
-      >
-        <ul
-          id="navLinks"
-          class="hidden flex justify-center md:flex flex-col md:flex-row gap-7 items-center absolute md:static top-full md:top-auto left-0 w-full max-w-[1400px] bg-black opacity-98 md:bg-transparent py-6 md:py-0 z-40"
-        >
-          <li class="animate-fadeInUp delay-100">
-            <a
-              href="/"
-              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300"
-            >
-              Home
-            </a>
-          </li>
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden text-[#8B4513] text-3xl focus:outline-none absolute right-6">
+          ☰
+        </button>
+      </div>
+    </header>
+    <!-- ===== HEADER END ===== -->
 
-          <li class="animate-fadeInUp delay-200">
-            <a
-              href="/getting-started.html"
-              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300"
-            >
-              Getting Started
-            </a>
-          </li>
+    <!-- ===== NAVBAR START ===== -->
+    <nav class="w-full mx-auto h-auto pt-8 pb-4 flex justify-center items-center shadow-2xl relative">
+      <ul id="navLinks"
+        class="hidden flex justify-center md:flex flex-col md:flex-row gap-7 items-center absolute md:static top-full md:top-auto left-0 w-full max-w-[1400px] bg-black opacity-98 md:bg-transparent py-6 md:py-0 z-40">
+        <li class="animate-fadeInUp delay-100">
+          <a href="/"
+            class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300">
+            Home
+          </a>
+        </li>
 
-          <li class="animate-fadeInUp delay-300">
-            <a
-              href="/rule.html"
-              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300"
-            >
-              Rules
-            </a>
-          </li>
+        <li class="animate-fadeInUp delay-200">
+          <a href="/getting-started.html"
+            class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300">
+            Getting Started
+          </a>
+        </li>
 
-          <li class="animate-fadeInUp delay-300">
-            <a
-              href="https://wiki.ageofsosaria.com/index.php?title=Main_Page"
-              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300"
-            >
-              Wiki
-            </a>
-          </li>
-          <li class="animate-fadeInUp delay-400">
-            <a
-              href="/about.html"
-              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300"
-            >
-              About Us
-            </a>
-          </li>
+        <li class="animate-fadeInUp delay-300">
+          <a href="/rule.html"
+            class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300">
+            Rules
+          </a>
+        </li>
 
-          <li class="animate-fadeInUp delay-400">
-            <a
-              href="/contact.html"
-              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300"
-            >
-              Contact Us
-            </a>
-          </li>
+        <li class="animate-fadeInUp delay-300">
+          <a href="https://wiki.ageofsosaria.com/index.php?title=Main_Page"
+            class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300">
+            Wiki
+          </a>
+        </li>
+        <li class="animate-fadeInUp delay-400">
+          <a href="/about.html"
+            class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300">
+            About Us
+          </a>
+        </li>
 
-          <!-- Mobile Donate -->
-          <li class="pt-4 md:pt-0 md:px-4 px-6">
-            <a
-              href="/donate.html"
-              class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300"
-            >
-              Donate Now
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- ===== NAVBAR END ===== -->
-    </div>
-    <!-- ===== WRAPPER END ===== -->
+        <li class="animate-fadeInUp delay-400">
+          <a href="/contact.html"
+            class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300">
+            Contact Us
+          </a>
+        </li>
 
-    <section
-      id="loader"
-      class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] fixed top-0 left-0 z-50"
-    >
-      <!-- ====animateContainer==== -->
+        <!-- Mobile Donate -->
+        <li class="pt-4 md:pt-0 md:px-4 px-6">
+          <a href="/donate.html"
+            class="text-sosaria hover:text-[#B97E49] uppercase text-md md:text-lg font-bold py-1 px-5 transition-all duration-300 hover:scale-105 block border border-[#B97E49] relative overflow-hidden shadow-[0_0_8px_#B97E49] hover:shadow-[0_0_8px_#B97E49] before:content-[''] before:absolute before:inset-0 before:bg-[#B97E49]/20 before:opacity-0 hover:before:opacity-40 before:transition-all before:duration-300">
+            Donate Now
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- ===== NAVBAR END ===== -->
+  </div>
+  <!-- ===== WRAPPER END ===== -->
+
+  <section id="loader"
+    class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] fixed top-0 left-0 z-50">
+    <!-- ====animateContainer==== -->
+    <div class="flip-card w-[500px] aspect-square [perspective:1000px] opacity-10">
       <div
-        class="flip-card w-[500px] aspect-square [perspective:1000px] opacity-10"
-      >
+        class="flip-card-inner relative w-full max-w-[500px] h-full max-h-[500px] text-center [transform-style:preserve-3d]">
         <div
-          class="flip-card-inner relative w-full max-w-[500px] h-full max-h-[500px] text-center [transform-style:preserve-3d]"
-        >
-          <div
-            class="flip-card-front absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center"
-          >
-            <img
-              src="./images/icon-pfp-1080__2_-removebg-preview.png"
-              alt="coin"
-              class="w-full h-full obj-cover"
-            />
-          </div>
-          <div
-            class="flip-card-back absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center [transform:rotateY(180deg)]"
-          >
-            <img
-              src="./images/icon-pfp-1080__2_-removebg-preview.png"
-              alt="coin"
-              class="w-full h-full obj-cover"
-            />
-          </div>
+          class="flip-card-front absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center">
+          <img src="./images/icon-pfp-1080__2_-removebg-preview.png" alt="coin" class="w-full h-full obj-cover" />
+        </div>
+        <div
+          class="flip-card-back absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center [transform:rotateY(180deg)]">
+          <img src="./images/icon-pfp-1080__2_-removebg-preview.png" alt="coin" class="w-full h-full obj-cover" />
         </div>
       </div>
-      <!-- ====animateContainer==== -->
-    </section>
+    </div>
+    <!-- ====animateContainer==== -->
+  </section>
 
-    <!-- home page content here  -->
-    <main
-      class="relative pt-[200px] md:pt-[225px] min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
-      style="
+  <!-- home page content here  -->
+  <main
+    class="relative pt-[200px] md:pt-[225px] min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
+    style="
         background-image: url(&quot;/images/BGDark.png&quot;);
         background-attachment: fixed;
-      "
-    >
-      <div class="w-full max-w-[1200px] mx-auto">
-        <!-- ====section1==== -->
-        <section class="w-full h-auto relative py-5">
-          <div
-            class="w-full flex items-center justify-center p-6 md:p-12 bg-no-repeat relative z-53"
-            style="
+      ">
+    <div class="w-full max-w-[1200px] mx-auto">
+      <!-- ====section1==== -->
+      <section class="w-full h-auto relative py-5">
+        <div class="w-full flex items-center justify-center p-6 md:p-12 bg-no-repeat relative z-53" style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            "
-          >
-            <div class="relative w-full text-center">
-              <h2 class="sectionHeading">
-                <h2
-                  class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
-                  data-animate="fadeInDown"
-                >
-                  Getting Started
-                </h2>
+            ">
+          <div class="relative w-full text-center">
+            <h2 class="sectionHeading">
+              <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
+                Getting Started
               </h2>
+            </h2>
 
-              <div
-                class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto"
-              >
-                <p class="paragraph">
-                  Welcome to Age of Sosaria. Joining the world is quick and
-                  easy. Just follow the steps below and you’ll be in-game within
-                  minutes.
-                </p>
-              </div>
+            <div class="space-y-4 md:space-y-6 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
+              <p class="paragraph">
+                Welcome to Age of Sosaria. Joining the world is quick and
+                easy. Just follow the steps below and you’ll be in-game within
+                minutes.
+              </p>
             </div>
           </div>
-        </section>
-        <!-- section One end -->
+        </div>
+      </section>
+      <!-- section One end -->
 
-        <!-- section two start -->
-        <section
-          id="sectionTwo"
-          class="w-full py-10 px-4 flex justify-center items-center"
-        >
-          <div
-            class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
-            style="
+      <!-- section two start -->
+      <section id="sectionTwo" class="w-full py-10 px-4 flex justify-center items-center">
+        <div class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll" style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            "
-            data-animate="scaleIn"
-          >
-            <div class="relative z-10 w-full text-center">
-              <h2
-                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
-                data-animate="fadeInDown"
-              >
-                Quick Start (Recommended)
-              </h2>
+            " data-animate="scaleIn">
+          <div class="relative z-10 w-full text-center">
+            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
+              Quick Start (Recommended)
+            </h2>
 
-              <ul
-                class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8"
-              >
-                <li
-                  class="flex items-center gap-2 animate-on-scroll delay-100"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Download the Age of Sosaria Installer from the Downloads
-                    page.
-                  </span>
-                </li>
+            <ul class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8">
+              <li class="flex items-center gap-2 animate-on-scroll delay-100" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Download the Age of Sosaria Installer from the Downloads
+                  page.
+                </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-200"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white"> Run the installer. </span>
-                </li>
+              <li class="flex items-start gap-3 animate-on-scroll delay-200" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white"> Run the installer. </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-300"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Launch the Age of Sosaria Patcher.
-                  </span>
-                </li>
+              <li class="flex items-start gap-3 animate-on-scroll delay-300" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Launch the Age of Sosaria Patcher.
+                </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-400"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Click Play and enter the world.
-                  </span>
-                </li>
-              </ul>
-              <button
-                class="mt-10 md:mt-14 animate-on-scroll delay-500"
-                data-animate="scaleIn"
-              >
-                <a
-                  href="#"
-                  class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
-                >
-                  <div
-                    class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
-                    style="
+              <li class="flex items-start gap-3 animate-on-scroll delay-400" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Click Play and enter the world.
+                </span>
+              </li>
+            </ul>
+            <button class="mt-10 md:mt-14 animate-on-scroll delay-500" data-animate="scaleIn">
+              <a href="#"
+                class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group">
+                <div
+                  class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
+                  style="
                       background-image: url(&quot;/images/button-bg.png&quot;);
                       filter: sepia(0.2) brightness(1.2);
-                    "
-                  ></div>
-                  <span class="relative z-10"> Download Installer </span>
-                </a>
-              </button>
-            </div>
+                    "></div>
+                <span class="relative z-10"> Download Installer </span>
+              </a>
+            </button>
           </div>
-        </section>
-        <!-- section two end -->
+        </div>
+      </section>
+      <!-- section two end -->
 
-        <!-- section Three start-->
-        <section
-          id="sectionTwo"
-          class="w-full py-10 px-4 flex justify-center items-center"
-        >
-          <div
-            class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
-            style="
+      <!-- section Three start-->
+      <section id="sectionTwo" class="w-full py-10 px-4 flex justify-center items-center">
+        <div class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll" style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            "
-            data-animate="scaleIn"
-          >
-            <div class="relative z-10 w-full text-center">
-              <h2
-                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
-                data-animate="fadeInDown"
-              >
-                Manual Installation (Advanced Users)
-              </h2>
+            " data-animate="scaleIn">
+          <div class="relative z-10 w-full text-center">
+            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
+              Manual Installation (Advanced Users)
+            </h2>
 
-              <ul
-                class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8"
-              >
-                <li
-                  class="flex items-center gap-2 animate-on-scroll delay-100"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Install a compatible Ultima Online client.
-                  </span>
-                </li>
+            <ul class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8">
+              <li class="flex items-center gap-2 animate-on-scroll delay-100" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Install a compatible Ultima Online client.
+                </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-200"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Download and install ClassicUO (recommended).
-                  </span>
-                </li>
+              <li class="flex items-start gap-3 animate-on-scroll delay-200" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Download and install ClassicUO (recommended).
+                </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-300"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Configure your client using the manual connection settings
-                    below.
-                  </span>
-                </li>
+              <li class="flex items-start gap-3 animate-on-scroll delay-300" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Configure your client using the manual connection settings
+                  below.
+                </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-400"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white"> Launch the game and log in. </span>
-                </li>
-              </ul>
-            </div>
+              <li class="flex items-start gap-3 animate-on-scroll delay-400" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white"> Launch the game and log in. </span>
+              </li>
+            </ul>
           </div>
-        </section>
-        <!-- section Three end-->
-        <!-- section Four start-->
-        <section
-          id="sectionTwo"
-          class="w-full py-10 px-4 flex justify-center items-center"
-        >
-          <div
-            class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
-            style="
+        </div>
+      </section>
+      <!-- section Three end-->
+      <!-- section Four start-->
+      <section id="sectionTwo" class="w-full py-10 px-4 flex justify-center items-center">
+        <div class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll" style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            "
-            data-animate="scaleIn"
-          >
-            <div class="relative z-10 w-full text-center">
-              <h2
-                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
-                data-animate="fadeInDown"
-              >
-                Manual Connection Settings
-              </h2>
+            " data-animate="scaleIn">
+          <div class="relative z-10 w-full text-center">
+            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
+              Manual Connection Settings
+            </h2>
 
-              <ul
-                class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8"
-              >
-                <li
-                  class="flex items-center gap-2 animate-on-scroll delay-100"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1"></span>
-                  <span class="text-white pb-8">
-                    If you prefer to connect manually or use your own client
-                    setup, use the following server details:
-                  </span>
-                </li>
+            <ul class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8">
+              <li class="flex items-center gap-2 animate-on-scroll delay-100" data-animate="slideInLeft">
+                <span class="mt-1"></span>
+                <span class="text-white pb-8">
+                  If you prefer to connect manually or use your own client
+                  setup, use the following server details:
+                </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-200"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Server Address: play.ageofsosaria.com
-                  </span>
-                </li>
+              <li class="flex items-start gap-3 animate-on-scroll delay-200" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Server Address: play.ageofsosaria.com
+                </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-300"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white"> Port: 2593 </span>
-                </li>
+              <li class="flex items-start gap-3 animate-on-scroll delay-300" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white"> Port: 2593 </span>
+              </li>
 
-                <li
-                  class="flex items-center gap-2 animate-on-scroll delay-100"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1"></span>
-                  <span class="text-white pt-8">
-                    You may download our pre-patched client
-                    <a
-                      class="underline"
-                      href="https://www.ageofsosaria.com/downloads/Pre-patched%20Ultima%20Online%20Client.zip"
-                    >
-                      HERE </a
-                    >. After downloading, enter the settings in your client
-                    assistance's configuration, then connect normally.
-                  </span>
-                </li>
-              </ul>
-            </div>
+              <li class="flex items-center gap-2 animate-on-scroll delay-100" data-animate="slideInLeft">
+                <span class="mt-1"></span>
+                <span class="text-white pt-8">
+                  You may download our pre-patched client
+                  <a class="underline decoration-[#B57B47] pl-2 uppercase "
+                    href="https://www.ageofsosaria.com/downloads/Pre-patched%20Ultima%20Online%20Client.zip">
+                    here </a>. After downloading, enter the settings in your client
+                  assistance's configuration, then connect normally.
+                </span>
+              </li>
+            </ul>
           </div>
-        </section>
-        <!-- section Four end-->
+        </div>
+      </section>
+      <!-- section Four end-->
 
-        <!-- section Five start-->
-        <section
-          id="sectionTwo"
-          class="w-full py-10 px-4 flex justify-center items-center"
-        >
-          <div
-            class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll"
-            style="
+      <!-- section Five start-->
+      <section id="sectionTwo" class="w-full py-10 px-4 flex justify-center items-center">
+        <div class="relative w-full flex items-center justify-center p-12 md:p-24 bg-no-repeat animate-on-scroll" style="
               background-image: url(&quot;/images/large-bg.png&quot;);
               background-size: 100% 100%;
-            "
-            data-animate="scaleIn"
-          >
-            <div class="relative z-10 w-full text-center">
-              <h2
-                class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll"
-                data-animate="fadeInDown"
-              >
-                Need Help?
-              </h2>
+            " data-animate="scaleIn">
+          <div class="relative z-10 w-full text-center">
+            <h2 class="sectionHeading text-5xl md:text-7xl mb-8 animate-on-scroll" data-animate="fadeInDown">
+              Need Help?
+            </h2>
 
-              <ul
-                class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8"
-              >
-                <li
-                  class="flex items-center gap-2 animate-on-scroll delay-100"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white"> Join our community Discord. </span>
-                </li>
+            <ul class="space-y-4 text-xl md:text-2xl max-w-2xl mx-auto text-left mt-8">
+              <li class="flex items-center gap-2 animate-on-scroll delay-100" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white"> Join our community Discord. </span>
+              </li>
 
-                <li
-                  class="flex items-start gap-3 animate-on-scroll delay-200"
-                  data-animate="slideInLeft"
-                >
-                  <span class="mt-1">•</span>
-                  <span class="text-white">
-                    Ask other players or staff for assistance.</span
-                  >
-                </li>
-              </ul>
-            </div>
+              <li class="flex items-start gap-3 animate-on-scroll delay-200" data-animate="slideInLeft">
+                <span class="mt-1">•</span>
+                <span class="text-white">
+                  Ask other players or staff for assistance.</span>
+              </li>
+            </ul>
           </div>
-        </section>
-        <!-- section Five end-->
-        <!-- ========================= -->
-      </div>
-    </main>
-    <footer
-      class="relative w-full py-8 overflow-hidden relative border-t-2 border-[#B07845] px-4 bg-[#2c1500] animate-on-scroll overflow-hidden"
-      data-animate="fadeInUp"
-      style="
+        </div>
+      </section>
+      <!-- section Five end-->
+      <!-- ========================= -->
+    </div>
+  </main>
+  <footer
+    class="relative w-full py-8 overflow-hidden relative border-t-2 border-[#B07845] px-4 bg-[#2c1500] animate-on-scroll overflow-hidden"
+    data-animate="fadeInUp" style="
         background-image: url(&quot;/images//BGDark.png&quot;);
         background-size: cover;
         background-position: center;
-      "
-    >
-      <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+      ">
+    <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+
+    <div class="relative z-10 mx-auto flex flex-col items-center justify-center space-y-8">
+      <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+        <a href="/download.html"
+          class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110">
+          Downloads
+        </a>
+        <span class="text-amber-500 hidden md:inline">|</span>
+        <a href="https://wiki.ageofsosaria.com/index.php?title=Main_Page"
+          class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110">
+          Wiki
+        </a>
+        <span class="text-amber-500 hidden md:inline">|</span>
+        <a href="/rule.html"
+          class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110">
+          Rules
+        </a>
+      </div>
 
       <div
-        class="relative z-10 mx-auto flex flex-col items-center justify-center space-y-8"
-      >
-        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-          <a
-            href="/download.html"
-            class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110"
-          >
-            Downloads
-          </a>
-          <span class="text-amber-500 hidden md:inline">|</span>
-          <a
-            href="https://wiki.ageofsosaria.com/index.php?title=Main_Page"
-            class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110"
-          >
-            Wiki
-          </a>
-          <span class="text-amber-500 hidden md:inline">|</span>
-          <a
-            href="/rule.html"
-            class="font-bold uppercase tracking-widest text-[#B57B47] transition-all duration-300 hover:text-[#B57B47] hover:-translate-y-1 [text-shadow:2px_2px_4px_rgba(0,0,0,1)] hover:scale-110"
-          >
-            Rules
-          </a>
-        </div>
-
-        <div
-          class="flex flex-col md:flex-row items-center gap-4 text-center bg-black/30 p-4 rounded-lg backdrop-blur-sm border border-white/10"
-        >
-          <div class="flex items-center gap-3">
-            <span class="font-bold h-16 w-[130px]">
-              <a href="/">
-                <img
-                  src="/images/logo-png.png"
-                  alt="Logo"
-                  class="w-full h-full transition-all duration-300 hover:scale-110"
-                />
-              </a>
-            </span>
-          </div>
-
-          <span class="italic text-[#B57B47]">
-            Custom Ultima Online Shard
+        class="flex flex-col md:flex-row items-center gap-4 text-center bg-black/30 p-4 rounded-lg backdrop-blur-sm border border-white/10">
+        <div class="flex items-center gap-3">
+          <span class="font-bold h-16 w-[130px]">
+            <a href="/">
+              <img src="/images/logo-png.png" alt="Logo"
+                class="w-full h-full transition-all duration-300 hover:scale-110" />
+            </a>
           </span>
         </div>
 
-        <div
-          class="flex gap-8 uppercase text-[11px] tracking-[0.2em] font-bold"
-        >
-          <a
-            href="/privacy-policy.html"
-            class="text-[#B57B47] transition-all duration-300"
-            >Privacy Policy</a
-          >
-          <a
-            href="/terms-of-service.html"
-            class="text-[#B57B47] transition-all duration-300"
-            >Terms of Service</a
-          >
-        </div>
+        <span class="italic text-[#B57B47]">
+          Custom Ultima Online Shard
+        </span>
       </div>
-    </footer>
 
-    <script src="script.js"></script>
-    <script src="nav.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+      <div class="flex gap-8 uppercase text-[11px] tracking-[0.2em] font-bold">
+        <a href="/privacy-policy.html" class="text-[#B57B47] transition-all duration-300">Privacy Policy</a>
+        <a href="/terms-of-service.html" class="text-[#B57B47] transition-all duration-300">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-    <!-- <script src="./newScript.js"></script> -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.to(".flip-card", {
-          opacity: 1,
-          duration: 0.1,
-          ease: "none",
-        });
-        const tl = gsap.timeline();
+  <script src="script.js"></script>
+  <script src="nav.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 
-        tl.from(".flip-card-inner", {
-          y: -500,
-          rotateY: 360,
-          duration: 1,
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+  <!-- <script src="./newScript.js"></script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to(".flip-card", {
+        opacity: 1,
+        duration: 0.1,
+        ease: "none",
+      });
+      const tl = gsap.timeline();
+
+      tl.from(".flip-card-inner", {
+        y: -500,
+        rotateY: 360,
+        duration: 1,
+        ease: "none",
+      })
+        .to(".flip-card-inner", {
+          scale: 3,
+          duration: 0.5,
           ease: "none",
         })
-          .to(".flip-card-inner", {
-            scale: 3,
-            duration: 0.5,
-            ease: "none",
-          })
-          .to("#loader", {
-            opacity: 0,
-            duration: 1,
-            oncomplete: () => {
-              document.getElementById("loader").style.display = "none";
-            },
-          });
-        const scrollWrappers = document.querySelectorAll(".scrollWrapper");
-        scrollWrappers.forEach((elm, idx) => {
-          const paper = elm.querySelector(".scrollPaper");
-          const tl2 = gsap.timeline({
-            scrollTrigger: {
-              trigger: elm,
-              start: "top 70%",
-              end: "+=500",
-              scrub: true,
-              markers: true,
-            },
-          });
+        .to("#loader", {
+          opacity: 0,
+          duration: 1,
+          oncomplete: () => {
+            document.getElementById("loader").style.display = "none";
+          },
+        });
+      const scrollWrappers = document.querySelectorAll(".scrollWrapper");
+      scrollWrappers.forEach((elm, idx) => {
+        const paper = elm.querySelector(".scrollPaper");
+        const tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: elm,
+            start: "top 70%",
+            end: "+=500",
+            scrub: true,
+            markers: true,
+          },
+        });
 
-          tl2.to(paper, {
-            height: 500,
-            duration: 1,
-            ease: "none",
-          });
+        tl2.to(paper, {
+          height: 500,
+          duration: 1,
+          ease: "none",
         });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
