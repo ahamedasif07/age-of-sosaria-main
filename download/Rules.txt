@@ -1,0 +1,97 @@
+Age of Sosaria — Official Rules
+
+Last updated: v1.0
+
+Age of Sosaria is a long-term, custom Ultima Online shard focused on meaningful progression, fair play, and a healthy community. The following rules exist to protect the shard, its players, and the integrity of gameplay.
+
+Failure to follow these rules may result in warnings, suspensions, or permanent bans.
+
+1. General Conduct
+
+Players are expected to treat others with respect.
+
+Harassment, hate speech, threats, or real-world targeting are not tolerated.
+
+Disagreements and competition are part of the game; personal attacks are not.
+
+Staff reserves the right to take action against behavior that harms the community, even if it is not explicitly listed here.
+
+2. Exploits, Bugs, and Abuse
+
+Exploiting bugs, mechanics, or unintended behavior is prohibited.
+
+Duping, item cloning, or abuse of server systems will result in severe penalties.
+
+Players are encouraged to report bugs to staff.
+
+Claiming ignorance does not exempt a player from punishment.
+
+3. Third-Party Software & Automation
+
+Unauthorized third-party programs, scripts, or automation tools are prohibited.
+
+Macros must comply with server limitations.
+
+AFK gameplay that provides unfair progression or advantages may be penalized.
+
+4. Accounts & Multi-Accounting
+
+Players are allowed up to three (3) accounts.
+
+Use of additional accounts beyond this limit is prohibited.
+
+Circumventing account limits through alternate identities, VPNs, or other methods is not allowed.
+
+All accounts are considered the responsibility of the same player for enforcement purposes.
+
+5. PvP & Player Interaction
+
+PvP is allowed where game rules permit it.
+
+Griefing that serves no gameplay purpose (harassment, corpse blocking, stalling, etc.) may be penalized.
+
+Repeatedly targeting a player for harassment rather than competition is not allowed.
+
+6. Housing & World Resources
+
+Housing placement abuse (blocking key areas or intentionally disrupting gameplay) is prohibited.
+
+Staff may remove houses or items that negatively impact server health or gameplay.
+
+Resource monopolization through exploits or automation is not allowed.
+
+7. Economy & Trading
+
+Real-money trading (RMT) of accounts, gold, or items is prohibited.
+
+Scams that rely on exploits or misleading mechanics may be penalized.
+
+Legitimate player-to-player trading is allowed and encouraged.
+
+8. Account Security & Responsibility
+
+Players are responsible for securing their own accounts.
+
+Account sharing is done at the player’s own risk.
+
+Staff will not reverse losses caused by account sharing, negligence, or compromised accounts.
+
+9. Staff Authority & Enforcement
+
+Staff decisions are final.
+
+Punishments may range from warnings to permanent bans.
+
+Attempts to evade punishment will result in escalated action.
+
+10. Development Disclaimer
+
+Age of Sosaria is under active development.
+
+Mechanics, balance, and systems may change.
+
+Bugs, rollbacks, or wipes may occur if necessary for the health of the shard.
+
+11. Final Rule
+
+Use common sense. If you have to ask whether something is allowed, it probably isn’t.
