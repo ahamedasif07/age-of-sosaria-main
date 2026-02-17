@@ -67,6 +67,7 @@ h1.headerHeading {
 .paragraph {
   width: fit-content;
   height: auto;
+  padding: 10px;
   margin: 0 auto;
   font-size: 33px;
   font-weight: 700;
